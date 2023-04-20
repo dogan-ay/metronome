@@ -1,0 +1,10 @@
+:root {
+    --grey-3: #C7C7CC;
+    --grey-4: #D1D1D6;
+    --grey-5: #E5E5EA;
+    --grey-6: #F2F2F7;
+
+}
+body {
+  background-color: var(--grey-5);
+}
