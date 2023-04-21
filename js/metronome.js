@@ -73,3 +73,10 @@ class Metronome {
   const metronome = new Metronome(120);
 
   document.querySelector('section').addEventListener('click', () =>   metronome.start())
+
+const value = document.querySelector("#bpmOutput")
+const input = document.querySelector("#bpmInput")
+value.textContent = input.value
+input.addEventListener("input", (event) => {
+  value.textContent = event.target.value
+})

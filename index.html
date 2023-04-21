@@ -5,14 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@trendyol/baklava@2.0.0/dist/themes/default.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@trendyol/baklava@2.0.0/dist/baklava.js"></script>
+
     <link rel="stylesheet" href="/style/style.css">
     <title>Metronome</title>
 </head>
 <body>
 
-    <section>Test</section>
+    <main>
+        <section class="metronome">
+            <section class="options-wrapper space-between">
+                <bl-badge size="medium">Theme: Light</bl-badge>
+                <bl-icon name="settings"></bl-icon>
+            </section>
+            <section class="indicator center">
+                <span class="center">
+                    <h1 id="bpmOutput">140</h1>
+                    <h6>BPM</h6>
+                </span>
+            </section>
+            <section class="controller">
+                <span class="range-container space-between">
+                    <p>-</p>
+                    <input type="range" name="" id="bpmInput" min="40" max="220" step="1" value="100">
+                    <p>+</p>
+                </span>
+                <span class="play-button center">
+                    <bl-icon name="play"></bl-icon>
+                </span>
+            </section>
+        </section>
+    </main>
+   
 
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@trendyol/baklava@2.0.0/dist/baklava.js"></script>
    <script src="/js/metronome.js"></script> 
 </body>
 </html>
