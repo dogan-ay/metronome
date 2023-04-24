@@ -16,7 +16,7 @@
         <section class="metronome">
             <section class="options-wrapper space-between">
                 <bl-badge size="medium">Theme: Light</bl-badge>
-                <bl-icon name="settings"></bl-icon>
+                <bl-icon name="settings" id="settings"></bl-icon>
             </section>
             <section class="indicator center">
                 <span class="center">
@@ -26,18 +26,53 @@
             </section>
             <section class="controller">
                 <span class="range-container space-between">
-                    <p>-</p>
+                    <bl-button id="rangeDecrement" icon="minus" variant="tertiary" size="small"></bl-button>
                     <input type="range" name="" id="bpmInput" min="40" max="220" step="1" value="100">
-                    <p>+</p>
+                    <bl-button id="rangeIncrement" icon="plus" variant="tertiary" size="small"></bl-button>
                 </span>
-                <span class="play-button center">
-                    <bl-icon name="play"></bl-icon>
+                <span id="toggleButton" class="play-button center">
+                    <bl-icon  id="playPauseIcon" name="play"></bl-icon>
                 </span>
             </section>
         </section>
     </main>
-   
+    <bl-drawer id="drawer-2" caption="Settings">
+        <aside>
+            <span class="space-between">
+                <p>Dark Theme</p>
+                <bl-switch id="themeSwitch">
+                </bl-switch>
+            </span>
+            <span class="space-between">
+                <p>Beats</p>
+                <span class="space-between tempo-input">
+                    <bl-button id="tempoDecrement" icon="minus" variant="tertiary" size="small"></bl-button>
+                    <span id="tempo" data-value="4">
+                        <p id="tempoOutput">4</p>
+                    </span>
+                    <bl-button id="tempoIncrement" icon="plus" variant="tertiary" size="small"></bl-button>
+                </span>
+            </span>
+            <span class="space-between">
+                <p>Sound</p>
+                <bl-select id="sound" placeholder="Choose sound" value="tic">
+                    <bl-select-option value="tic">Tic Tok</bl-select-option>
+                    <bl-select-option value="test">test</bl-select-option>
+                </bl-select>
+            </span>
+            <div class="settings-buttons">
+                <bl-button id="save" size="large" icon="save">Save</bl-button>
+                <bl-button id="close" variant="secondary" size="large" icon="back">Close</bl-button>
 
-   <script src="/js/metronome.js"></script> 
+            </div>
+            
+        </aside>
+      </bl-drawer>
+    
+   
+    <script src="/js/settings.js" defer></script>
+   <script src="/js/metronome.js"></script>
+   <script src="/js/control.js"></script> 
+ 
 </body>
 </html>
