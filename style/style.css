@@ -9,6 +9,21 @@
     --custom-primary: rgb(0, 122, 255);
 }
 
+.dark-root {
+        --grey-5: rgb(44,44,46);
+
+}
+
+.dark {
+    --grey-3: rgb(28,28,30);
+    --grey-4: rgb(58,58,60);
+    --grey-5: rgb(44,44,46);
+    --grey-6: rgb(28,28,30);
+    --primary: rgb(242, 242, 247);
+    --soft-color: rgb(209,209,214);
+    --secondary-text: #8E8E93;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
@@ -26,9 +41,9 @@ h6 {
 body {
   background-color: var(--grey-5);
   font-family: var(--bl-font-family);
-  
   --bl-badge-color: var(--custom-primary) !important;
   --bl-badge-bg-color: rgba(85, 191, 240, 0.11);
+  margin: 0;
 }
 
 main {
@@ -36,6 +51,7 @@ main {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    height: 100vh;
 }
 
 section.metronome {
@@ -71,7 +87,8 @@ section.options-wrapper {
 
 section.indicator {
     height: 20rem;
-    
+    flex-direction: column;  
+    justify-content: space-evenly !important;
 }
 
 section.indicator > span {
@@ -104,7 +121,7 @@ span.play-button {
     background-color: var(--soft-color);
     border-radius: var(--bl-border-radius-circle);
     font-size: var(--bl-font-size-4xl);
-    color: white;
+    color: var(--grey-6);
     cursor: pointer;
 }
 
@@ -140,6 +157,27 @@ div.settings-buttons {
 #sound {
     --bl-color-primary: var(--custom-primary) !important;
     --bl-color-primary-highlight: rgb(85,190,240);
+}
+
+.beats {
+    flex-direction: row !important;
+    gap: 1.2rem;
+}
+
+.dot {
+    width: 0.9rem;
+    height: 0.9rem;
+    outline: 0.2rem solid var(--grey-4);
+    outline-offset: 0.2rem;
+    border-radius: 50%;
+    background-color: var(--grey-4);
+}
+
+.selected-dot {
+    background-color: var(--custom-primary);
+    outline-color: var(--custom-primary);
+    transform: scale(1.1);
+
 }
 
 .center {

@@ -1,4 +1,4 @@
-const metronome = new Metronome(120);
+const metronome = new Metronome(100, 4);
 let isPlaying = false;
 const toggleButton = document.querySelector('#toggleButton');
 const icon = document.querySelector('#playPauseIcon')
@@ -22,6 +22,7 @@ toggleButton.addEventListener('click',toggle)
 const updateRange = () => {
     value.textContent = input.value;
     metronome.setBpm(input.value);
+    beat.setBpm(input.value);
 }
 
 value.textContent = input.value

@@ -1,10 +1,12 @@
 class Metronome {
-  constructor(bpm) {
+  constructor(bpm, beatCount) {
     this.context = new AudioContext();
     this.bpm = bpm;
     this.isPlaying = false;
     this.tickLength = 0.05; // in seconds (50ms)
-    
+    this.currentBeatIndex = 0;
+    this.beatCount = beatCount;
+    this.intervalId = null;
     // Load tick sound
     this.tickSound = null;
     this.loadSound('/public/sound.mp3')
@@ -42,7 +44,7 @@ class Metronome {
     this.isPlaying = true;
 
     const interval = (60 / this.bpm) * 1000;
-    this.timer = setInterval(this.tick, interval);
+    this.intervalId = setInterval(this.tick, interval);
   }
 
   stop() {
@@ -50,7 +52,7 @@ class Metronome {
 
     this.isPlaying = false;
 
-    clearInterval(this.timer);
+    clearInterval(this.intervalId);
   }
 
   tick() {
@@ -58,7 +60,20 @@ class Metronome {
     source.buffer = this.tickSound;
     source.connect(this.context.destination);
     source.start();
+    
+    const items = [...document.querySelectorAll(".dot")];
+    const currentIndex = this.currentBeatIndex % items.length;
+    const currentItem = items[currentIndex];
+  
+    currentItem.classList.add("selected-dot");
+  
+    setTimeout(() => {
+      currentItem.classList.remove("selected-dot");
+    }, (60 / this.bpm) * 1000);
+    
+    this.currentBeatIndex++;
   }
+  
 
   setBpm(bpm) {
     this.bpm = bpm;
@@ -68,15 +83,8 @@ class Metronome {
       this.start();
     }
   }
+
+  setBeatCount(count) {
+    this.beatCount = count;
+  }
 }
-
-  const metronome = new Metronome(120);
-
-  document.querySelector('section').addEventListener('click', () =>   metronome.start())
-
-const value = document.querySelector("#bpmOutput")
-const input = document.querySelector("#bpmInput")
-value.textContent = input.value
-input.addEventListener("input", (event) => {
-  value.textContent = event.target.value
-})

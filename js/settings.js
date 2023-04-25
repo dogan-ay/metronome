@@ -30,7 +30,9 @@ class Settings {
             observer.observe(this.drawer.shadowRoot, { childList: true, subtree: true });
             
         })
-      
+        
+        this.switch.addEventListener("bl-switch-toggle", this.themeSwitch.bind(this))
+
         this.sound.addEventListener("bl-select", (event) => {
             this.selectedSound = event.target.value;
         })
@@ -54,7 +56,7 @@ class Settings {
     
     updateTempo() {
         this.tempoOutput.innerText = this.tempo
-        console.log(this.switch, this.switchValue)
+        beat.updateBeat(this.tempo)
     }
 
     tempoIncrement() {
@@ -74,8 +76,10 @@ class Settings {
     reset() {
         this.tempoOutput.innerText = this.realTempo;
         this.tempo = this.realTempo;
+        beat.updateBeat(this.realTempo)
         this.sound.value = this.soundValue;
         this.switch.checked = this.switchValue;
+        this.themeSwitch(this.switchValue)
     }
 
     save() {
@@ -83,60 +87,21 @@ class Settings {
         this.realTempo = this.tempo;
         this.soundValue = this.selectedSound;
         this.switchValue = this.switch.checked;
+        this.themeSwitch(this.switchValue);
+    }
+
+    themeSwitch() {
+        const body = document.querySelector('body');
+        const main = document.querySelector('main');
+        if (this.switch.checked) {
+            body.classList.add("dark-root")
+            main.classList.add("dark")
+        } else {
+            body.classList.remove("dark-root")
+            main.classList.remove("dark")
+        }
     }
 
 }
 
 const settings = new Settings();
-/*
-const settingsListener = () => {
-    const settings = document.querySelector("#settings")
-    settings.addEventListener("click", () => {
-        settingsSection.setAttribute("open","")
-    })
-}
-
-const settingsClose = () => {
-    settingsSection.removeAttribute("open");
-}
-
-const closeListener = () => {
-    const close = document.querySelector("#close");
-    close.addEventListener("click",settingsClose)
-}
-
-closeListener()
-
-settingsListener()
-
-let tempo = parseInt(document.querySelector("#tempo").dataset.value) 
-
-const updateTempo = () => {
-    let tempoOutput = document.querySelector("#tempoOutput")
-    tempoOutput.innerText = tempo
-}
-
-const tempoIncrement = () => {
-    if (tempo < 12){
-        tempo += 1;
-        updateTempo();
-    }
-}
-
-const tempoDecrement = () => {
-    if (tempo > 1) {
-        tempo -= 1;
-        updateTempo();
-    }
-} 
-
-const tempoListener = () => {
-    const increment = document.querySelector("#tempoIncrement");
-    const decrement = document.querySelector("#tempoDecrement");
-
-    increment.addEventListener("click", tempoIncrement) 
-    decrement.addEventListener("click", tempoDecrement)
-}
-
-tempoListener()
-*/
