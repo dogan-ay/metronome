@@ -9,7 +9,8 @@ class Metronome {
     this.intervalId = null;
     // Load tick sound
     this.tickSound = null;
-    this.loadSound('/public/sound.mp3')
+    this.soundUrl = 'default'
+    this.loadSound(`/public/${this.soundUrl}.mp3`)
       .then((sound) => {
         this.tickSound = sound;
       })
@@ -87,4 +88,23 @@ class Metronome {
   setBeatCount(count) {
     this.beatCount = count;
   }
+
+  setSound(arg) {
+    if (arg == 0) {
+      this.soundUrl = 'default';
+    } else if (arg == 1) {
+      this.soundUrl = 'kick';
+    } else if (arg == 2) {
+      this.soundUrl = 'tick-tock';
+    }
+    this.loadSound(`/public/${this.soundUrl}.mp3`)
+    .then((sound) => {
+      this.tickSound = sound;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+  }
+
 }
