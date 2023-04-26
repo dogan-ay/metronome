@@ -41,7 +41,7 @@ class Settings {
         this.closeButton.addEventListener("click", this.settingsClose.bind(this));
         this.saveButton.addEventListener("click", this.save.bind(this));
         this.tempoListener();
-        this.badge.innerText = "Light"
+        this.badge.innerText = "Dark"
 
     }
 

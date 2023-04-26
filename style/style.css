@@ -209,3 +209,19 @@ div.settings-buttons {
     justify-content: space-between;
     align-items: center;
 }
+
+@media (max-width: 600px) {
+    section.metronome {
+        width: 100%;
+        margin: 0 1rem;
+    }
+
+    .beats {
+        flex-wrap: wrap;
+        width: 80%;
+    }
+
+    .sound-row {
+        flex-direction: column;
+    }
+}

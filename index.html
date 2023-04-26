@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="./style/style.css">
     <title>Metronome</title>
 </head>
-<body class="">
+<body class="dark-root">
 
-    <main class="">
+    <main class="dark">
         <section class="metronome">
             <section class="options-wrapper space-between">
                 <bl-badge size="medium">Theme: <span id="theme-badge"></span></bl-badge>
@@ -44,7 +44,7 @@
         <aside>
             <span class="space-between">
                 <p>Dark Theme</p>
-                <bl-switch id="themeSwitch">
+                <bl-switch id="themeSwitch" checked>
                 </bl-switch>
             </span>
             <span class="space-between">
@@ -57,7 +57,7 @@
                     <bl-button id="tempoIncrement" icon="plus" variant="tertiary" size="small"></bl-button>
                 </span>
             </span>
-            <span class="space-between">
+            <span class="space-between sound-row">
                 <p>Sound</p>
                 <bl-select id="sound" placeholder="Choose sound" value="0">
                     <bl-select-option value="0">Default</bl-select-option>
