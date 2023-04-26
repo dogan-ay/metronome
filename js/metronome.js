@@ -97,7 +97,7 @@ class Metronome {
     } else if (arg == 2) {
       this.soundUrl = 'tick-tock';
     }
-    this.loadSound(`/public/${this.soundUrl}.mp3`)
+    this.loadSound(`./public/${this.soundUrl}.mp3`)
     .then((sound) => {
       this.tickSound = sound;
     })
