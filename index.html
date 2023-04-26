@@ -15,7 +15,7 @@
     <main class="">
         <section class="metronome">
             <section class="options-wrapper space-between">
-                <bl-badge size="medium">Theme: Light</bl-badge>
+                <bl-badge size="medium">Theme: <span id="theme-badge"></span></bl-badge>
                 <bl-icon name="settings" id="settings"></bl-icon>
             </section>
             <section class="indicator center">
@@ -36,7 +36,10 @@
                 </span>
             </section>
         </section>
+
     </main>
+    <footer class="center">Design & Development by &nbsp;<a href="http://doganay.dev/">Doğan Ay Şengül</a></footer>
+
     <bl-drawer id="drawer-2" caption="Settings">
         <aside>
             <span class="space-between">
@@ -56,9 +59,10 @@
             </span>
             <span class="space-between">
                 <p>Sound</p>
-                <bl-select id="sound" placeholder="Choose sound" value="tic">
-                    <bl-select-option value="tic">Tic Tok</bl-select-option>
-                    <bl-select-option value="test">test</bl-select-option>
+                <bl-select id="sound" placeholder="Choose sound" value="0">
+                    <bl-select-option value="0">Default</bl-select-option>
+                    <bl-select-option value="2">Tic Tok</bl-select-option>
+                    <bl-select-option value="1">Kick</bl-select-option>
                 </bl-select>
             </span>
             <div class="settings-buttons">
