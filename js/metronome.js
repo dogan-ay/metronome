@@ -10,7 +10,7 @@ class Metronome {
     // Load tick sound
     this.tickSound = null;
     this.soundUrl = 'default'
-    this.loadSound(`/public/${this.soundUrl}.mp3`)
+    this.loadSound(`./public/${this.soundUrl}.mp3`)
       .then((sound) => {
         this.tickSound = sound;
       })
