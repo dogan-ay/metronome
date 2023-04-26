@@ -4,6 +4,7 @@
     --grey-5: #E5E5EA;
     --grey-6: #F2F2F7;
     --primary: #1C1C1E;
+    --text: #1C1C1E;
     --soft-color: rgb(58,58,60);
     --secondary-text: #8E8E93;
     --custom-primary: rgb(0, 122, 255);
@@ -11,6 +12,7 @@
 
 .dark-root {
         --grey-5: rgb(44,44,46);
+        --text: rgb(209,209,214);
 
 }
 
@@ -44,14 +46,30 @@ body {
   --bl-badge-color: var(--custom-primary) !important;
   --bl-badge-bg-color: rgba(85, 191, 240, 0.11);
   margin: 0;
+ 
 }
 
 main {
+    box-sizing: border-box;
+    min-height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    height: 100vh;
+}
+
+footer {
+    height: 2rem;
+    font-size: var(--bl-size-s);
+    color: var(--text);
+}
+
+footer > a {
+    color: var(--custom-primary);
+    text-decoration: none;
+}
+
+footer > a:hover{
+    text-decoration: underline;
 }
 
 section.metronome {
@@ -60,7 +78,6 @@ section.metronome {
     border-radius: var(--bl-border-radius-m);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 section.options-wrapper {
@@ -156,7 +173,7 @@ div.settings-buttons {
 
 #sound {
     --bl-color-primary: var(--custom-primary) !important;
-    --bl-color-primary-highlight: rgb(85,190,240);
+    --bl-color-primary-highlight: var(--custom-primary) !important;
 }
 
 .beats {
