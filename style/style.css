@@ -78,6 +78,8 @@ section.metronome {
     border-radius: var(--bl-border-radius-m);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+
 }
 
 section.options-wrapper {
