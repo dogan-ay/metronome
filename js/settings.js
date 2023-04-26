@@ -12,6 +12,7 @@ class Settings {
         this.selectedSound = this.soundValue;
         this.switch = document.querySelector("#themeSwitch");
         this.switchValue = this.switch.checked;
+        this.badge = document.querySelector("#theme-badge");
         this.init()
     }
     
@@ -35,10 +36,13 @@ class Settings {
 
         this.sound.addEventListener("bl-select", (event) => {
             this.selectedSound = event.target.value;
+            metronome.setSound(this.selectedSound)
         })
         this.closeButton.addEventListener("click", this.settingsClose.bind(this));
         this.saveButton.addEventListener("click", this.save.bind(this));
         this.tempoListener();
+        this.badge.innerText = "Light"
+
     }
 
     settingsClose() {
@@ -76,10 +80,11 @@ class Settings {
     reset() {
         this.tempoOutput.innerText = this.realTempo;
         this.tempo = this.realTempo;
-        beat.updateBeat(this.realTempo)
+        beat.updateBeat(this.realTempo);
         this.sound.value = this.soundValue;
+        metronome.setSound(this.soundValue);
         this.switch.checked = this.switchValue;
-        this.themeSwitch(this.switchValue)
+        this.themeSwitch(this.switchValue);
     }
 
     save() {
@@ -96,12 +101,16 @@ class Settings {
         if (this.switch.checked) {
             body.classList.add("dark-root")
             main.classList.add("dark")
+            this.badge.innerText = "Dark"
+            
         } else {
             body.classList.remove("dark-root")
             main.classList.remove("dark")
+            this.badge.innerText = "Light"
         }
     }
 
 }
 
 const settings = new Settings();
+
